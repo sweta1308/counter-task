@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
-import { Button } from "./Button";
+import { useState, useEffect } from 'react'
+import { Button } from './Button'
 import {
   counterType,
   timerStartedType,
   timerType,
   CounterProps,
-} from "./Counter.types";
+} from './Counter.types'
 
 export const Counter: React.FC<CounterProps> = () => {
-  const [counter, setCounter] = useState<counterType>(0);
-  const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false);
+  const [counter, setCounter] = useState<counterType>(0)
+  const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false)
 
   useEffect(() => {
-    let timerId: timerType;
+    let timerId: timerType
     if (isTimerStarted) {
       timerId = setInterval(() => {
-        setCounter((prev) => prev + 1);
-      }, 1000);
+        setCounter((prev) => prev + 1)
+      }, 1000)
     }
-    return () => clearInterval(timerId);
-  }, [isTimerStarted]);
+    return () => clearInterval(timerId)
+  }, [isTimerStarted])
 
-  const handleClick = () => setIsTimerStarted((prev) => !prev);
+  const handleClick = () => setIsTimerStarted((prev) => !prev)
 
   return (
     <>
@@ -32,5 +32,5 @@ export const Counter: React.FC<CounterProps> = () => {
         <Button handleClick={handleClick}>Start</Button>
       )}
     </>
-  );
-};
+  )
+}
