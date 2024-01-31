@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
 export const Navbar = () => {
-  const getStyle = ({
-    isActive,
-  }: {
+  type StyleProp = {
     isActive: boolean
-  }): {
+  }
+  type Style = {
     color: string
     textDecoration: string
-  } => ({
+  }
+  const getStyle = ({ isActive }: StyleProp): Style => ({
     color: isActive ? 'rgb(45, 125, 246)' : '',
     textDecoration: isActive ? 'underline' : '',
   })
