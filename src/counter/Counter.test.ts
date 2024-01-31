@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+// import Counter from './Counter'
 import Counter from './Counter'
-
 jest.useFakeTimers()
 
 describe('counter test', () => {

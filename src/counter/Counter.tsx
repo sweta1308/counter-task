@@ -1,15 +1,9 @@
 import React, { useRef, useState } from 'react'
-import {
-  counterType,
-  CounterProps,
-  timerType,
-  timerStartedType,
-} from './Counter.types'
 
-const Counter: React.FC<CounterProps> = () => {
-  const [counter, setCounter] = useState<counterType>(0)
-  const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false)
-  const timer = useRef<timerType>(undefined)
+const Counter = () => {
+  const [counter, setCounter] = useState<number>(0)
+  const [isTimerStarted, setIsTimerStarted] = useState<boolean>(false)
+  const timer = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const handleClick = () => {
     setIsTimerStarted((prev) => !prev)

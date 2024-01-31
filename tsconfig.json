@@ -18,6 +18,6 @@
     "jsx": "react-jsx",
     "baseUrl": "src"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/counter/Counter.test.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],
 }
