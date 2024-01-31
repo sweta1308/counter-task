@@ -11,29 +11,26 @@ const Counter: React.FC<CounterProps> = () => {
   const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false)
   const timer = useRef<timerType>(null)
 
-  const handleStartClick = () => {
-    setIsTimerStarted(true)
-    timer.current = setInterval(() => {
-      setCounter((prev) => prev + 1)
-    }, 1000)
-  }
-
-  const handleStopClick = () => {
-    setIsTimerStarted(false)
-    if (timer.current !== null) {
-      clearInterval(timer.current)
-      timer.current = null
+  const handleClick = () => {
+    setIsTimerStarted((prev) => !prev)
+    if (!isTimerStarted) {
+      timer.current = setInterval(() => {
+        setCounter((prev) => prev + 1)
+      }, 1000)
+    } else {
+      if (timer.current !== null) {
+        clearInterval(timer.current)
+        timer.current = null
+      }
     }
   }
+
+  const buttonText = isTimerStarted ? 'Stop' : 'Start'
 
   return (
     <>
       <h1>{counter} seconds</h1>
-      {!isTimerStarted ? (
-        <button onClick={handleStartClick}>Start</button>
-      ) : (
-        <button onClick={handleStopClick}>Stop</button>
-      )}
+      <button onClick={handleClick}>{buttonText}</button>
     </>
   )
 }
