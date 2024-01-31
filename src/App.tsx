@@ -1,10 +1,15 @@
-import Counter from 'counter/Counter'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import { Counter, Home, Tictactoe } from 'pages'
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/tictactoe" element={<Tictactoe />} />
+      </Routes>
     </div>
   )
 }
