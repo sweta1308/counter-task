@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState, useEffect } from 'react'
 import { Button } from './Button'
 import {
@@ -7,7 +8,8 @@ import {
   CounterProps,
 } from './Counter.types'
 
-export const Counter: React.FC<CounterProps> = () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Counter: React.FC<CounterProps> = () => {
   const [counter, setCounter] = useState<counterType>(0)
   const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false)
 
@@ -25,12 +27,18 @@ export const Counter: React.FC<CounterProps> = () => {
 
   return (
     <>
-      <h1>{counter} seconds</h1>
+      <h1 data-testid="Count">{counter} seconds</h1>
       {isTimerStarted ? (
-        <Button handleClick={handleClick}>Stop</Button>
+        <Button handleClick={handleClick} id={'Stop'}>
+          Stop
+        </Button>
       ) : (
-        <Button handleClick={handleClick}>Start</Button>
+        <Button handleClick={handleClick} id={'Start'}>
+          Start
+        </Button>
       )}
     </>
   )
 }
+
+export default Counter
