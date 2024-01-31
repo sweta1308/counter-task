@@ -9,7 +9,7 @@ import {
 const Counter: React.FC<CounterProps> = () => {
   const [counter, setCounter] = useState<counterType>(0)
   const [isTimerStarted, setIsTimerStarted] = useState<timerStartedType>(false)
-  const timer = useRef<timerType>(null)
+  const timer = useRef<timerType>(undefined)
 
   const handleClick = () => {
     setIsTimerStarted((prev) => !prev)
@@ -18,10 +18,8 @@ const Counter: React.FC<CounterProps> = () => {
         setCounter((prev) => prev + 1)
       }, 1000)
     } else {
-      if (timer.current !== null) {
-        clearInterval(timer.current)
-        timer.current = null
-      }
+      clearInterval(timer.current)
+      timer.current = undefined
     }
   }
 
