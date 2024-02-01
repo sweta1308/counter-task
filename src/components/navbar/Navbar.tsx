@@ -1,21 +1,30 @@
 import React from 'react'
 import './Navbar.css'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Navbar = () => {
-  const getClassName = ({ isActive }: { isActive: boolean }): string => {
-    return isActive ? 'active-link' : ''
-  }
+  const location = useLocation()
+
   return (
     <nav>
-      <a className={`link ${getClassName}`} href="/">
+      <Link
+        className={`link ${location.pathname === '/' ? 'active-link' : ''}`}
+        to="/"
+      >
         Home
-      </a>
-      <a className={`link ${getClassName}`} href="/counter">
+      </Link>
+      <Link
+        className={`link ${location.pathname === '/counter' ? 'active-link' : ''}`}
+        to="/counter"
+      >
         Counter
-      </a>
-      <a className={`link ${getClassName}`} href="/tictactoe">
+      </Link>
+      <Link
+        className={`link ${location.pathname === '/tictactoe' ? 'active-link' : ''}`}
+        to="/tictactoe"
+      >
         Tic Tac Toe
-      </a>
+      </Link>
     </nav>
   )
 }

@@ -18,6 +18,6 @@ nav {
 }
 
 .active-link {
-  color: 'rgb(45, 125, 246)';
-  text-decoration: 'underline';
+  color: rgb(45, 125, 246);
+  text-decoration: underline;
 }
