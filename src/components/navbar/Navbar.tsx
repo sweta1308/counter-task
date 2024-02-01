@@ -1,30 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
 export const Navbar = () => {
-  type StyleProp = {
-    isActive: boolean
+  const getClassName = ({ isActive }: { isActive: boolean }): string => {
+    return isActive ? 'active-link' : ''
   }
-  type Style = {
-    color: string
-    textDecoration: string
-  }
-  const getStyle = ({ isActive }: StyleProp): Style => ({
-    color: isActive ? 'rgb(45, 125, 246)' : '',
-    textDecoration: isActive ? 'underline' : '',
-  })
   return (
     <nav>
-      <NavLink style={getStyle} className="link" to="/">
+      <a className={`link ${getClassName}`} href="/">
         Home
-      </NavLink>
-      <NavLink style={getStyle} className="link" to="/counter">
+      </a>
+      <a className={`link ${getClassName}`} href="/counter">
         Counter
-      </NavLink>
-      <NavLink style={getStyle} className="link" to="/tictactoe">
+      </a>
+      <a className={`link ${getClassName}`} href="/tictactoe">
         Tic Tac Toe
-      </NavLink>
+      </a>
     </nav>
   )
 }
