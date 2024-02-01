@@ -39,6 +39,8 @@ export const TictactoeProvider: React.FC<TictactoeProviderProps> = ({
 
   if (winner) {
     message = `${winner} is winner! `
+  } else if (!boardValues.includes('')) {
+    message = `It's a tie.`
   } else {
     message = `${isXNext ? 'X' : 'O'}'s turn`
   }
