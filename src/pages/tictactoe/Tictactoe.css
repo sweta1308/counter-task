@@ -1,0 +1,20 @@
+.tictactoe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reset-btn {
+  background-color: rgb(79, 119, 250);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: rgb(52, 98, 249);
+}
