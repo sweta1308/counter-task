@@ -1,32 +1,30 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import './Navbar.css'
+import { Link, useLocation } from 'react-router-dom'
 
-const Navbar = () => {
-  type StyleProp = {
-    isActive: boolean
-  }
-  type Style = {
-    color: string
-    textDecoration: string
-  }
-  const getStyle = ({ isActive }: StyleProp): Style => ({
-    color: isActive ? 'rgb(45, 125, 246)' : '',
-    textDecoration: isActive ? 'underline' : '',
-  })
+export const Navbar = () => {
+  const location = useLocation()
+
   return (
     <nav>
-      <NavLink style={getStyle} className="link" to="/">
+      <Link
+        className={`link ${location.pathname === '/' ? 'active-link' : ''}`}
+        to="/"
+      >
         Home
-      </NavLink>
-      <NavLink style={getStyle} className="link" to="/counter">
+      </Link>
+      <Link
+        className={`link ${location.pathname === '/counter' ? 'active-link' : ''}`}
+        to="/counter"
+      >
         Counter
-      </NavLink>
-      <NavLink style={getStyle} className="link" to="/tictactoe">
+      </Link>
+      <Link
+        className={`link ${location.pathname === '/tictactoe' ? 'active-link' : ''}`}
+        to="/tictactoe"
+      >
         Tic Tac Toe
-      </NavLink>
+      </Link>
     </nav>
   )
 }
-
-export default Navbar
