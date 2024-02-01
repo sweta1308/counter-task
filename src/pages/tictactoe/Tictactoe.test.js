@@ -1,22 +1,18 @@
-import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect' // for additional matchers
 import Tictactoe from './Tictactoe'
 import { TictactoeProvider } from 'context/TictactoeContext'
 
-// Mock the context to provide the required values
-jest.mock('context/TictactoeContext', () => ({
+jest.mock('../../context/TictactoeContext', () => ({
   useTictactoe: jest.fn(),
 }))
 
-// Mock the context values
 const mockContextValue = {
-  message: 'Test Message',
+  message: 'Test',
   handleResetClick: jest.fn(),
 }
 
 describe('Tictactoe Component', () => {
-  it('renders Tictactoe component with the correct message', () => {
+  it('component render', () => {
     render(
       <TictactoeProvider>
         <Tictactoe />
@@ -24,7 +20,7 @@ describe('Tictactoe Component', () => {
     )
 
     expect(screen.getByText('Tic tac toe')).toBeInTheDocument()
-    expect(screen.getByText('Test Message')).toBeInTheDocument()
+    expect(screen.getByText('Test')).toBeInTheDocument()
   })
 
   it('calls handleResetClick when Reset button is clicked', () => {
