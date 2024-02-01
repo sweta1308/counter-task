@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './Counter.css'
-import { Navbar } from '../../components/navbar/Navbar'
+import { Navbar } from '../../components'
 
 const Counter = () => {
   const [counter, setCounter] = useState<number>(0)
