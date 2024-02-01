@@ -5,7 +5,6 @@ import { Navbar } from '../../components'
 const Counter = () => {
   const [counter, setCounter] = useState<number>(0)
   const [isTimerStarted, setIsTimerStarted] = useState<boolean>(false)
-  // eslint-disable-next-line no-undef
   const timer = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const handleClick = () => {

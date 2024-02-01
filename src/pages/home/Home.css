@@ -13,6 +13,7 @@
   border: none;
   cursor: pointer;
   text-decoration: underline;
+  color: black;
 }
 
 .home-btn:hover {
