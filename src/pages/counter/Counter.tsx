@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react'
+import './Counter.css'
+import { Navbar } from '../../components/navbar/Navbar'
 
 const Counter = () => {
   const [counter, setCounter] = useState<number>(0)
@@ -21,8 +23,13 @@ const Counter = () => {
 
   return (
     <>
-      <h1>{counter} seconds</h1>
-      <button onClick={handleClick}>{buttonText}</button>
+      <Navbar />
+      <div className="counter">
+        <h1>{counter} seconds</h1>
+        <button className="counter-btn" onClick={handleClick}>
+          {buttonText}
+        </button>
+      </div>
     </>
   )
 }
