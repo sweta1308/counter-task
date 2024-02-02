@@ -1,18 +1,27 @@
 import { render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-// import Counter from './Counter'
 import Counter from './Counter'
+import { BrowserRouter } from 'react-router-dom'
+
 jest.useFakeTimers()
 
 describe('counter test', () => {
   test('test for render of start button', () => {
-    render(<Counter />)
+    render(
+      <BrowserRouter>
+        <Counter />
+      </BrowserRouter>,
+    )
     const startBtn = screen.getByText('Start')
     expect(startBtn).toBeInTheDocument()
   })
 
   test('test for start of timer', () => {
-    render(<Counter />)
+    render(
+      <BrowserRouter>
+        <Counter />
+      </BrowserRouter>,
+    )
     const startButton = screen.getByText('Start')
     fireEvent.click(startButton)
 
@@ -28,7 +37,11 @@ describe('counter test', () => {
   })
 
   test('test for stop of timer', () => {
-    render(<Counter />)
+    render(
+      <BrowserRouter>
+        <Counter />
+      </BrowserRouter>,
+    )
     const startBtn = screen.getByText('Start')
     fireEvent.click(startBtn)
 

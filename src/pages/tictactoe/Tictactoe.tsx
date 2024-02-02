@@ -1,11 +1,21 @@
 import React from 'react'
-import { Navbar } from '../../components/navbar/Navbar'
+import { Board, Navbar } from '../../components'
+import './Tictactoe.css'
+import { useTictactoe } from 'context/TictactoeContext'
 
 const Tictactoe = () => {
+  const { message, handleResetClick } = useTictactoe()
   return (
     <>
       <Navbar />
-      <h1>Tictactoe</h1>
+      <div className="tictactoe">
+        <h1>Tic tac toe</h1>
+        <Board />
+        <h2>{message}</h2>
+        <button className="reset-btn" onClick={handleResetClick}>
+          Reset
+        </button>
+      </div>
     </>
   )
 }
