@@ -14,7 +14,7 @@ describe('Tictactoe Component', () => {
     (useTictactoe as jest.Mock).mockReturnValue({
       boardValues: ['', '', '', '', '', '', '', '', ''],
       message: "X's turn",
-      handleBoardClick: jest.fn(),
+      handleCellClick: jest.fn(),
       handleResetClick: jest.fn(),
     })
     render(
@@ -33,7 +33,7 @@ describe('Tictactoe Component', () => {
     (useTictactoe as jest.Mock).mockReturnValue({
       boardValues: ['X', 'O', '', 'X', '', '', 'O', 'X', ''],
       message: "X's turn",
-      handleBoardClick: jest.fn(),
+      handleCellClick: jest.fn(),
       handleResetClick: jest.fn(),
     })
     render(
