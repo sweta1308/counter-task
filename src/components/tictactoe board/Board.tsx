@@ -5,7 +5,7 @@ import { useTictactoe } from 'context/TictactoeContext'
 const Board = () => {
   const { boardValues, handleBoardClick } = useTictactoe()
   const getSquares = (i: number) => (
-    <div className="cell" data-id={i}>
+    <div className="cell" data-id={i} data-testid={i}>
       {boardValues[i]}
     </div>
   )
