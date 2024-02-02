@@ -9,22 +9,20 @@ jest.mock('context/TictactoeContext', () => ({
   useTictactoe: jest.fn(),
 }))
 
-describe('Board component', () => {
-  test('renders Board component with initial values', () => {
-    (useTictactoe as jest.Mock).mockReturnValue({
-      boardValues: ['', '', '', '', '', '', '', '', ''],
-      message: "X's turn",
-      handleBoardClick: jest.fn(),
-      handleResetClick: jest.fn(),
-    })
-    render(
-      <BrowserRouter>
-        <Board />
-      </BrowserRouter>,
-    )
-
-    const element = screen.getByTestId('0')
-
-    expect(element).toBeInTheDocument()
+test('renders Board component with initial values', () => {
+  (useTictactoe as jest.Mock).mockReturnValue({
+    boardValues: ['', '', '', '', '', '', '', '', ''],
+    message: "X's turn",
+    handleBoardClick: jest.fn(),
+    handleResetClick: jest.fn(),
   })
+  render(
+    <BrowserRouter>
+      <Board />
+    </BrowserRouter>,
+  )
+
+  const element = screen.getByTestId('0')
+
+  expect(element).toBeInTheDocument()
 })

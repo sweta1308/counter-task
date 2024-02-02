@@ -3,15 +3,13 @@ import { render, screen } from '@testing-library/react'
 import { Navbar } from './Navbar'
 import { BrowserRouter } from 'react-router-dom'
 
-describe('Navbar component', () => {
-  test('renders Navbar component', () => {
-    render(
-      <BrowserRouter>
-        <Navbar />
-      </BrowserRouter>,
-    )
-    expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('Counter')).toBeInTheDocument()
-    expect(screen.getByText('Tic Tac Toe')).toBeInTheDocument()
-  })
+test('renders Navbar component', () => {
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>,
+  )
+  expect(screen.getByText('Home')).toBeInTheDocument()
+  expect(screen.getByText('Counter')).toBeInTheDocument()
+  expect(screen.getByText('Tic Tac Toe')).toBeInTheDocument()
 })
