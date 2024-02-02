@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 type TictactoeProviderProps = {
   children: ReactNode
@@ -7,7 +7,7 @@ type TictactoeProviderProps = {
 type TictactoeProps = {
   boardValues: string[]
   message: string
-  handleBoardClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  handleCellClick: (i: number) => void
   handleResetClick: () => void
 }
 
