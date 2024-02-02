@@ -11,7 +11,7 @@ jest.mock('context/TictactoeContext', () => ({
 
 describe('Tictactoe Component', () => {
   it('component render', () => {
-    ;(useTictactoe as jest.Mock).mockReturnValue({
+    (useTictactoe as jest.Mock).mockReturnValue({
       boardValues: ['', '', '', '', '', '', '', '', ''],
       message: "X's turn",
       handleBoardClick: jest.fn(),

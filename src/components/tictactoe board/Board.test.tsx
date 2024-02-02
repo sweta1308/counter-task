@@ -11,7 +11,6 @@ jest.mock('context/TictactoeContext', () => ({
 
 describe('Board component', () => {
   test('renders Board component with initial values', () => {
-    // eslint-disable-next-line prettier/prettier
     (useTictactoe as jest.Mock).mockReturnValue({
       boardValues: ['', '', '', '', '', '', '', '', ''],
       message: "X's turn",
