@@ -1,9 +1,9 @@
 import React from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Navbar = () => {
-  const location = window.location
+  const location = useLocation()
 
   return (
     <nav>
