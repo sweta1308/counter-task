@@ -3,7 +3,7 @@ import {
   TictactoeProps,
   TictactoeProviderProps,
 } from './TictactoeContext.types'
-import { findWinner } from 'utils/findWinner'
+import { findWinner } from 'utils/TicTacToe'
 
 const TictactoeContext = createContext<TictactoeProps>(undefined!)
 
@@ -15,17 +15,13 @@ export const TictactoeProvider: React.FC<TictactoeProviderProps> = ({
   let message: string
   const winner = findWinner(boardValues)
 
-  const handleBoardClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
-    const target = e.target as HTMLElement
-    const squareClicked = Number(target.dataset.id)
-    if (winner || boardValues[squareClicked]) return
+  const handleCellClick = (i: number) => {
+    if (winner || boardValues[i]) return
     const sqaures = boardValues.slice()
     if (isXNext) {
-      sqaures[squareClicked] = 'X'
+      sqaures[i] = 'X'
     } else {
-      sqaures[squareClicked] = 'O'
+      sqaures[i] = 'O'
     }
     setBoardValues(sqaures)
     setIsXNext((prev) => !prev)
@@ -47,7 +43,7 @@ export const TictactoeProvider: React.FC<TictactoeProviderProps> = ({
 
   return (
     <TictactoeContext.Provider
-      value={{ boardValues, message, handleBoardClick, handleResetClick }}
+      value={{ boardValues, message, handleCellClick, handleResetClick }}
     >
       {children}
     </TictactoeContext.Provider>
